@@ -84,11 +84,11 @@
     .block div:nth-child(n+3) { border-top: 1px solid var(--rule); }
   }
 
-  .photos { display: flex; flex-wrap: wrap; gap: .75rem; padding: 1rem 1.5rem; border-bottom: 2px solid var(--rule); }
+  .photos { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; padding: 1rem 1.5rem; border-bottom: 2px solid var(--rule); }
   .photos:empty { display: none; }
-  .photos figure { margin: 0; width: 170px; border: 2px solid var(--rule); background: var(--grid); }
+  .photos figure { margin: 0; min-width: 0; border: 2px solid var(--rule); background: var(--grid); }
   .photos img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
-  .photos figcaption { padding: .3rem .5rem; font: .75rem/1.3 var(--sans); color: var(--muted); background: var(--paper); border-top: 2px solid var(--rule); }
+  .photos figcaption { padding: .35rem .6rem; font: .8rem/1.3 var(--sans); color: var(--muted); background: var(--paper); border-top: 2px solid var(--rule); }
 
   .about { background: var(--paper); border: 2px solid var(--rule); padding: 1.25rem 1.5rem; }
   .about p { margin: 0 0 .75rem; max-width: 62ch; }
@@ -102,7 +102,9 @@
     <div class="intro">
       <div class="intro-text">
         <h1>Jack Elliott</h1>
-        <p class="lede">Electrical Engineering Student. Below are selected projects.</p>
+        <p class="lede">Electrical Engineering Student.</p>
+          
+
         <nav>
           <a href="#projects">Projects</a>
           <a href="#about">About</a>
@@ -142,15 +144,17 @@
     {
       title: "Tire Temp IR Matrix",
       summary: "Designed a custom ",
-      role: "Solo, 49er Formula SAE",
+      role: "49er Formula SAE",
       stack: "Altium, Fusion360, STM32CubeMX",
       year: "2026",
       status: "In Progress",
-      photos: [],
+      photos: [        { src: "Full ASSM..png", alt: "Full Assm", caption: "I2c to CAN bus" },
+       { src: "IR ASSeM..png", alt: "IRAssm", caption: "IR Sensor" }
+],
       links: []
     },
     {
-      title: "Wind Turbine Blade Analysis",
+      title: "Wearable Electromyography 'Rep Tracker' ",
       summary: "Modeled blade loading in MATLAB and checked stress with FEA. Redesigned the root section, which cut peak stress by 18%.",
       role: "Analysis and CAD",
       stack: "MATLAB, ANSYS",
@@ -163,7 +167,7 @@
       title: "Fabric-Hardware Interfaces",
       summary: "Designed and prototyped proprietary mechanical interfaces for fabric-integrated electronics. The product connects proprietary fabric PCBs and their components.",
       bullets: [
-        "Used DFM philosophy to create an easily and cheaply manufactured end product",
+        "Used Design for Manufacturability philosophy to create an easily and cheaply manufactured end product",
         "Researched optimal material durometer",
         "Tested low-resistance trace materials"
       ],
@@ -171,16 +175,23 @@
       stack: "Fusion 360, SLA 3D printing, advanced manufacturing processes",
       year: "2024-2026",
       status: "Completed",
-      photos: [{ src: "Hapticframe.png", alt: "Driver fabric interface", caption: "Driver fabric interface" }],
+      photos: [
+        { src: "Hapticframe.png", alt: "Haptic Driver frame render", caption: "Haptic Driver frame render" },
+        { src: "image (5).png", alt: "Driver fabric interface", caption: "Haptic Driver frame with filled traces" },
+        { src: "R2 DOUBLE HOLES.png", alt: "EL Driver fabric interface", caption: "EL Driver frame render" },
+        { src: "image (6).png", alt: "Driver fabric interface", caption: "EL Driver frame with unfilled traces" },
+        { src: "image (3).png", alt: "Driver fabric interface", caption: "Frame implemented in design (Cropped to preserve sensitive information)" },
+        { src: "stampsocket.png", alt: "Driver fabric interface", caption: "M5 Stamp frame" }
+      ],
       links: []
     }
   ];
 
   // EDIT THIS LIST. Photos shown in a strip under the intro. Fix the alt text and captions to describe each image.
   const gallery = [
-    { src: "R2 DOUBLE HOLES.png", alt: "R2 double holes part", caption: "R2 double holes" },
-    { src: "Hapticframe2.png", alt: "Haptic frame, second view", caption: "Haptic frame" },
-    { src: "Hapticframe.png", alt: "Haptic frame", caption: "Haptic frame" }
+    //{ src: "R2 DOUBLE HOLES.png", alt: "R2 double holes part", caption: "R2 double holes" },
+   // { src: "Hapticframe2.png", alt: "Haptic frame, second view", caption: "Haptic frame" },
+//{ src: "Hapticframe.png", alt: "Haptic frame", caption: "Haptic frame" }
   ];
 
   const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -194,9 +205,10 @@
 
   document.getElementById("project-list").innerHTML = projects.map(p => `
     <article class="sheet">
+      <h3 style="padding: 30px;">${esc(p.title)}</h3>
       ${(p.photos && p.photos.length) ? `<div class="photos">${p.photos.map(ph => figure(ph, p.title)).join("")}</div>` : ""}
       <div class="sheet-body">
-        <h3>${esc(p.title)}</h3>
+        
         <p>${esc(p.summary)}</p>
         ${(p.bullets && p.bullets.length) ? `<ul>${p.bullets.map(b => `<li>${esc(b)}</li>`).join("")}</ul>` : ""}
         ${(p.links && p.links.length) ? `<div class="links">${p.links.map(l => `<a href="${esc(l.url)}">${esc(l.label)}</a>`).join("")}</div>` : ""}
