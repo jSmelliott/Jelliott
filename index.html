@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Name – Engineering Portfolio</title>
+<meta name="description" content="Engineering projects by Your Name.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #eef2f4;
+    --grid: #d3dde2;
+    --ink: #14202b;
+    --muted: #4d5d6b;
+    --accent: #1f5fbf;
+    --rule: #14202b;
+    --sans: "Archivo", system-ui, sans-serif;
+    --serif: "Source Serif 4", Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    font: 1.0625rem/1.6 var(--serif);
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  a { color: var(--accent); }
+  a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 1.25rem; }
+
+  header { padding: 4rem 0 2.5rem; }
+  .intro { display: flex; gap: 2rem; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; }
+  .intro-text { flex: 1 1 24rem; }
+  .portrait { margin: 0; flex: 0 0 auto; border: 2px solid var(--rule); background: var(--grid); }
+  .portrait img { display: block; width: 220px; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .portrait figcaption { padding: .35rem .75rem; font: .8rem var(--sans); color: var(--muted); background: var(--paper); border-top: 2px solid var(--rule); }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2px; border: 2px solid var(--rule); background: var(--rule); margin-bottom: 1rem; }
+  .gallery:empty { display: none; }
+  .gallery figure { margin: 0; background: var(--grid); }
+  .gallery img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .gallery figcaption { padding: .35rem .75rem; font: .8rem var(--sans); color: var(--muted); background: var(--paper); }
+  h1 {
+    font: 800 clamp(2.4rem, 7vw, 4.5rem)/1 var(--sans);
+    letter-spacing: -0.03em;
+    margin: 0 0 1rem;
+  }
+  .lede { max-width: 38rem; font-size: 1.25rem; margin: 0 0 1.25rem; }
+  nav { font: 600 0.95rem var(--sans); display: flex; flex-wrap: wrap; gap: 1.25rem; }
+
+  h2 { font: 600 1.1rem var(--sans); margin: 3rem 0 1rem; }
+
+  /* Each project is laid out like a drawing title block */
+  .sheet {
+    background: var(--paper);
+    border: 2px solid var(--rule);
+    margin: 0 0 2rem;
+  }
+  .sheet-body { padding: 1.25rem 1.5rem; }
+  .sheet h3 { font: 800 1.6rem/1.15 var(--sans); letter-spacing: -0.01em; margin: 0 0 .5rem; }
+  .sheet p { margin: 0 0 .75rem; max-width: 62ch; }
+  .links { font: 600 .95rem var(--sans); display: flex; gap: 1.25rem; margin-top: .5rem; }
+  .block {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 2px solid var(--rule);
+    font: .85rem/1.4 var(--sans);
+  }
+  .block div { padding: .6rem 1rem; border-left: 1px solid var(--rule); }
+  .block div:first-child { border-left: 0; }
+  .block dt { color: var(--muted); font-weight: 400; }
+  .block dd { margin: 0; font-weight: 600; }
+  .block dl { display: contents; }
+  @media (max-width: 640px) {
+    .block { grid-template-columns: 1fr 1fr; }
+    .block div:nth-child(3) { border-left: 0; }
+    .block div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+  }
+
+  .photos { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2px; background: var(--rule); border-bottom: 2px solid var(--rule); }
+  .photos:empty { display: none; }
+  .photos figure { margin: 0; background: var(--grid); }
+  .photos img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .photos figcaption { padding: .35rem .75rem; font: .8rem var(--sans); color: var(--muted); background: var(--paper); }
+
+  .about { background: var(--paper); border: 2px solid var(--rule); padding: 1.25rem 1.5rem; }
+  .about p { margin: 0 0 .75rem; max-width: 62ch; }
+  footer { padding: 3rem 0 4rem; font: .9rem var(--sans); color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="intro">
+    <div class="intro-text">
+    <h1>Your Name</h1>
+    <p class="lede">Mechanical / electrical / software engineer (edit this) who builds things that work. Below are selected projects with what I did and how they turned out.</p>
+    <nav>
+      <a href="#projects">Projects</a>
+      <a href="#about">About</a>
+      <a href="mailto:you@example.com">Email</a>
+      <a href="https://github.com/your-username">GitHub</a>
+      <a href="https://www.linkedin.com/in/your-username">LinkedIn</a>
+      <a href="resume.pdf">Resume (PDF)</a>
+    </nav>
+    </div>
+    <figure class="portrait">
+      <img src="images/portrait.jpg" alt="Portrait of Your Name" onerror="this.closest('figure').remove()">
+      <figcaption>Your Name, at the workbench</figcaption>
+    </figure>
+    </div>
+  </header>
+
+  <main>
+    <div class="gallery" id="gallery"></div>
+
+    <h2 id="projects">Projects</h2>
+    <div id="project-list"></div>
+
+    <h2 id="about">About</h2>
+    <div class="about">
+      <p>Two or three sentences on your background, what you study or do, and what kind of work you want next.</p>
+      <p>Skills: CAD (SolidWorks), MATLAB, Python, C/C++, PCB design, FEA, 3D printing.</p>
+    </div>
+  </main>
+
+  <footer>© <span id="year"></span> Your Name</footer>
+</div>
+
+<script>
+  // EDIT THIS LIST. Add, remove or reorder projects; the page updates itself.
+  const projects = [
+    {
+      title: "Autonomous Line-Following Robot",
+      summary: "Designed the chassis, motor driver board and control loop for a robot that completed the course in 42 seconds. Tuned a PID controller using logged sensor data.",
+      role: "Lead, 4-person team",
+      stack: "C++, KiCad, SolidWorks",
+      year: "2026",
+      status: "Completed",
+      photos: [
+        { src: "images/line-robot-1.jpg", alt: "Line-following robot on the test track", caption: "Final robot on the test track" },
+        { src: "images/line-robot-2.jpg", alt: "Custom motor driver circuit board", caption: "Motor driver board, rev B" }
+      ],
+      links: [
+        { label: "Source code", url: "https://github.com/your-username/line-robot" }
+      ]
+    },
+    {
+      title: "Wind Turbine Blade Analysis",
+      summary: "Modeled blade loading in MATLAB and checked stress with FEA. Redesigned the root section, which cut peak stress by 18%.",
+      role: "Analysis and CAD",
+      stack: "MATLAB, ANSYS",
+      year: "2025",
+      status: "Completed",
+      photos: [{ src: "images/blade-fea.png", alt: "Stress contour plot of the turbine blade", caption: "Von Mises stress after the root redesign" }],
+      links: [{ label: "Source code", url: "https://github.com/your-username/blade-analysis" }]
+    },
+    {
+      title: "Home Energy Monitor",
+      summary: "Built a clamp-sensor monitor with an ESP32 that logs household power use and shows it on a web dashboard.",
+      role: "Solo project",
+      stack: "ESP32, Python, InfluxDB",
+      year: "2025",
+      status: "In progress",
+      photos: [{ src: "images/energy-monitor.jpg", alt: "ESP32 energy monitor with clamp sensor", caption: "Prototype with clamp sensor" }],
+      links: [{ label: "Source code", url: "https://github.com/your-username/energy-monitor" }]
+    }
+  ];
+
+  // EDIT THIS LIST. Photos shown in a strip under the intro (workshop, lab, team, builds).
+  const gallery = [
+    { src: "images/workshop.jpg", alt: "Workbench with tools and a half-built prototype", caption: "Workshop" },
+    { src: "images/team.jpg", alt: "Project team holding the finished robot", caption: "Team at the competition" },
+    { src: "images/lab.jpg", alt: "Oscilloscope measuring a signal on a test board", caption: "Testing in the lab" }
+  ];
+
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+  document.getElementById("project-list").innerHTML = projects.map(p => `
+    <article class="sheet">
+      ${(p.photos && p.photos.length) ? `<div class="photos">${p.photos.map(ph => `
+        <figure>
+          <img src="${esc(ph.src)}" alt="${esc(ph.alt || p.title)}" loading="lazy" onerror="this.closest('figure').remove()">
+          ${ph.caption ? `<figcaption>${esc(ph.caption)}</figcaption>` : ""}
+        </figure>`).join("")}</div>` : ""}
+      <div class="sheet-body">
+        <h3>${esc(p.title)}</h3>
+        <p>${esc(p.summary)}</p>
+        <div class="links">${p.links.map(l => `<a href="${esc(l.url)}">${esc(l.label)}</a>`).join("")}</div>
+      </div>
+      <div class="block">
+        <dl>
+          <div><dt>Role</dt><dd>${esc(p.role)}</dd></div>
+          <div><dt>Tools</dt><dd>${esc(p.stack)}</dd></div>
+          <div><dt>Year</dt><dd>${esc(p.year)}</dd></div>
+          <div><dt>Status</dt><dd>${esc(p.status)}</dd></div>
+        </dl>
+      </div>
+    </article>`).join("");
+
+  document.getElementById("gallery").innerHTML = gallery.map(ph => `
+    <figure>
+      <img src="${esc(ph.src)}" alt="${esc(ph.alt)}" loading="lazy" onerror="this.closest('figure').remove()">
+      ${ph.caption ? `<figcaption>${esc(ph.caption)}</figcaption>` : ""}
+    </figure>`).join("");
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
