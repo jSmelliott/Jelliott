@@ -111,7 +111,7 @@
           <a href="mailto:Jack@wkndfilmco.com">Email</a>
           <a href="https://github.com/sc-delll">GitHub</a>
           <a href="https://www.linkedin.com/in/jtelliott1">LinkedIn</a>
-          <a href="resume.pdf">Resume (PDF)</a>
+          <a href="Jack Elliott Resume (1).pdf">Resume (PDF)</a>
         </nav>
       </div>
       <figure class="portrait">
@@ -143,26 +143,41 @@
   const projects = [
     {
       title: "Tire Temp IR Matrix",
-      summary: "Designed a custom ",
+      summary: " Developing a 192-point tire temperature sensor for data acquisition on a Formula Student car.",
+        bullets: [
+        "Using an STM32 to compress data for transfer over CAN bus",
+      ],
       role: "49er Formula SAE",
       stack: "Altium, Fusion360, STM32CubeMX",
       year: "2026",
       status: "In Progress",
       photos: [        { src: "Full ASSM..png", alt: "Full Assm", caption: "I2c to CAN bus" },
-       { src: "IR ASSeM..png", alt: "IRAssm", caption: "IR Sensor" }
+       { src: "IR ASSeM..png", alt: "IRAssm", caption: "IR Sensor modual" }
 ],
       links: []
     },
-    {
-      title: "Wearable Electromyography 'Rep Tracker' ",
-      summary: "Modeled blade loading in MATLAB and checked stress with FEA. Redesigned the root section, which cut peak stress by 18%.",
-      role: "Analysis and CAD",
-      stack: "MATLAB, ANSYS",
+     {
+      title: "Wearable Electromyography Rep Tracker",
+      summary: "Developed a wearable electromyography (EMG) rep tracker integrating analog signal conditioning, custom electronics, Bluetooth communication, and a wearable enclosure.",
+      bullets: [
+        "Researched unmet clinical and fitness needs addressable through wearable EMG sensing and scoped project requirements using a formal engineering design process",
+        "Designed and simulated an analog comparator circuit and ADC signal chain in LTSpice to condition raw EMG signals for digital processing",
+        "Developed, laid out, and assembled a custom low-profile PCB, iterating from prototype to final revision",
+        "Developed an Android application to interface with an ESP32 over Bluetooth for real-time data transfer and communication",
+        "Fabricated a custom arm sleeve to house and secure electronics for wearable use"
+      ],
+      role: "Team lead of 3",
+      stack: "LTSpice, PCB design, ESP32, Bluetooth, Android development",
       year: "2025",
       status: "Completed",
-      photos: [{ src: "images/blade-fea.png", alt: "Stress contour plot of the turbine blade", caption: "Von Mises stress after the root redesign" }],
+      photos: [{ src: "repsync.png", alt: "Stress contour plot of the turbine blade", caption: "PCB with insert frame" }, 
+      { src: "FRAME.png", alt: "Stress contour plot of the turbine blade", caption: "Front of PCB" },
+      { src: "FRAME2.png", alt: "Stress contour plot of the turbine blade", caption: "Back of PCB" },
+    { src: "sow.png", alt: "Stress contour plot of the turbine blade", caption: "sewing sleeve" },
+     { src: "final.png", alt: "Stress contour plot of the turbine blade", caption: "Final Compression sleeve" }],
       links: []
     },
+    
     {
       title: "Fabric-Hardware Interfaces",
       summary: "Designed and prototyped proprietary mechanical interfaces for fabric-integrated electronics. The product connects proprietary fabric PCBs and their components.",
